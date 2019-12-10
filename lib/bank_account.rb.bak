@@ -1,0 +1,50 @@
+
+class BankAccount
+       attr_accessor :balance, :status, :name, :balance, :new_balance
+      
+       @@balance
+      
+       def initialize(name)
+         @name = name
+         @@balance = 1000
+         @status = "open"
+       end
+      
+      def balance=(balance)
+        @@balance = balance
+      end
+      
+      def balance
+        @@balance
+      end
+      
+       def name=(new_name)
+         raise(NoMethodError)
+       end
+    
+       def deposit(amount)
+         
+         @@balance = @@balance + amount
+       end
+    
+       def display_balance
+         return "Your balance is $#{@@balance}."
+       end
+        
+       def valid?
+         if @status == "open" && @@balance >= 1
+           return(true)
+         else
+           return(false)
+         end
+       end
+       
+       def status
+         @status
+       end
+       
+       def close_account
+         @status = "closed"
+         @@balance = 0 
+       end
+end      
